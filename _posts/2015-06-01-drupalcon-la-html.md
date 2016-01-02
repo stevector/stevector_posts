@@ -6,7 +6,7 @@ post_date: 2015-06-01 22:08:43
 post_excerpt: ""
 layout: post
 permalink: >
-  http://live-stevector.pantheon.io/2015/06/drupalcon-la-html/
+  http://www.stevector.com/2015/06/drupalcon-la-html/
 published: true
 ---
 This month at Drupalcon Los Angeles I gave two presentations on front-end rendering. The first, <a href="https://events.drupal.org/losangeles2015/sessions/rendering-html-drupal-past-present-and-future">Rendering HTML with Drupal: Past, Present and Future</a>, focused on the question "Is the job of a Drupal theme to <em>look like</em> a design or to <em>be</em> the design?" There are tools in Drupal like preprocess functions and template suggestions that encourage a mindset of altering and overriding existing markup. There are tools like field formatters and Views plugins that encourages crafting exactly the markup you want. Watch the video to see how the usage of these tools has changed to match evolving expectations.

@@ -6,7 +6,7 @@ post_date: 2013-08-08 19:20:03
 post_excerpt: ""
 layout: post
 permalink: >
-  http://live-stevector.pantheon.io/2013/08/fixing-typos-with-jekyll-and-github/
+  http://www.stevector.com/2013/08/fixing-typos-with-jekyll-and-github/
 published: true
 ---
 <a href="http://github.com">Github</a> can help rid us of the most annoying part of the web: <del>comments</del>, typos. Blogging platforms, geocities, wikis and web <del>2.0</del>, 3.0 wonders have marvelously democratized mass communication. In doing so, they’ve also exploded the volume of un-proofread prose available. You’re reading one of those dashed-off-in-Google-Drive, posted-too-quickly posts right now. And there’s a really good chance I’ll undermine my point about how to fix typos with Github with an unintended typo.

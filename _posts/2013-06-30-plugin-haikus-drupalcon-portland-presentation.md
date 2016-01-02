@@ -6,7 +6,7 @@ post_date: 2013-06-30 19:18:02
 post_excerpt: ""
 layout: post
 permalink: >
-  http://live-stevector.pantheon.io/2013/06/plugin-haikus-drupalcon-portland-presentation/
+  http://www.stevector.com/2013/06/plugin-haikus-drupalcon-portland-presentation/
 published: true
 ---
 Last month at Drupalcon Portland I gave <a href="http://portland2013.drupal.org/node/1458">a presentation on CTools plugins</a> along with <a href="https://twitter.com/pcambra">Pedro Cambra</a>. My half of the presentation focuses on working with existing plugins in <a href="http://drupal.org/project/panels">the Panels module</a>. Panels has one of the steeper learning curves in Drupal. Its complexity presents a challenge when debugging. I breakdown the Panels workflow into its component plugins and discuss the purpose of the plugin types.
