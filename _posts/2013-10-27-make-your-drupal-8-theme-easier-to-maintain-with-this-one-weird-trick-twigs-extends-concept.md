@@ -6,7 +6,7 @@ post_date: 2013-10-27 19:22:08
 post_excerpt: ""
 layout: post
 permalink: >
-  http://dev-stevector.pantheon.io/2013/10/make-your-drupal-8-theme-easier-to-maintain-with-this-one-weird-trick-twigs-extends-concept/
+  http://live-stevector.pantheon.io/2013/10/make-your-drupal-8-theme-easier-to-maintain-with-this-one-weird-trick-twigs-extends-concept/
 published: true
 ---
 <h3>WHAT is Twig's "extends" concept?</h3>
