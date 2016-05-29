@@ -8,7 +8,7 @@ post_date: 2014-01-09 19:24:50
 post_excerpt: ""
 layout: post
 permalink: >
-  http://www.stevector.com/2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/
+  http://stevector.com/2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/
 published: true
 ---
 <h3>WHAT is the deal?</h3>

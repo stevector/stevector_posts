@@ -6,7 +6,7 @@ post_date: 2013-06-30 18:46:22
 post_excerpt: ""
 layout: post
 permalink: >
-  http://www.stevector.com/2013/06/another-jekyll-blog/
+  http://stevector.com/2013/06/another-jekyll-blog/
 published: true
 ---
 I'm jumping on the bandwagon. My vague ambitions to start a blog have combined with my desire to build something outside of <a href="https://drupal.org">Drupal</a> (the technology that has been at the center of my job for six years). So like <a href="http://portal.ehawaii.gov/page/developers/">The state of Hawaii</a>, <a href="http://developmentseed.org/blog/new-healthcare-gov-is-open-and-cms-free/">the federal government</a> and Drupal developers <a href="http://angrylittletree.com/">Jeff Eaton</a>, and <a href="http://engineeredweb.com/blog/why-switched-to-jekyll/">Matt Farina</a> I've turned to Jekyll.
