@@ -1,6 +1,8 @@
 ---
 ID: 23
-post_title: "I graphed my skyrocketing exclamation point usage!<script>alert('XSS')</script>"
+post_title: >
+  I graphed my skyrocketing exclamation
+  point usage!
 author: admin65534
 post_date: 2014-01-09 19:24:50
 post_excerpt: ""
