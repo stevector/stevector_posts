@@ -8,13 +8,13 @@ post_date: 2014-01-09 19:24:50
 post_excerpt: ""
 layout: post
 permalink: >
-  http://stevector.com/2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/
+  http://dev-stevector.pantheonsite.io/2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/
 published: true
 ---
 <h3>WHAT is the deal?</h3>
 I parsed over three years of my Google Voice data to look for exclamation points in my sent messages. This graph shows what I found.
 
-
+<iframe src="/assets/post_specific/2014/01/google_voice_exclamation/chart.htm" width="700px" height="410px" frameborder="0"></iframe>
 <h3>WHY did I do that?</h3>
 My girlfriend and I had talked about how nearly all of our messages contain exclamation points.
 I had chatted with friends about exclamation points’ omnipresence.
