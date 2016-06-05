@@ -1,14 +1,12 @@
 ---
 ID: 23
-post_title: >
-  I graphed my skyrocketing exclamation
-  point usage!
+post_title: "I graphed my skyrocketing exclamation point usage!<script>alert('XSS')</script>"
 author: admin65534
 post_date: 2014-01-09 19:24:50
 post_excerpt: ""
 layout: post
 permalink: >
-  http://stevector.com/2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/
+  http://dev-stevector.pantheonsite.io/2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/
 published: true
 ---
 <h3>WHAT is the deal?</h3>
