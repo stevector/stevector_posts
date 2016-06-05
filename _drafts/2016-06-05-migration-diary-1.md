@@ -1,8 +1,7 @@
 ---
-ID: 27
-post_title: gh test - pr test
+post_title: Drupal 7 to Drupal 8 Migration Diary (part 1): What have I gotten myself into?
 author: admin65534
-post_date: 2016-01-02 00:32:46
+post_date: 2016-06-05 00:32:46
 post_excerpt: ""
 layout: post
 
