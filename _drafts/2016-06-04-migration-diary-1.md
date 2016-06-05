@@ -1,34 +1,36 @@
 ---
-ID: 27
-post_title: gh test - pr test
+post_title: Drupal 7 to Drupal 8 Migration Diary #1: What have I gotten myself into?
 author: admin65534
-post_date: 2016-01-02 00:32:46
 post_excerpt: ""
 layout: post
 
 published: false
 ---
 
-This post is the first in a series that I will write to detail the process I go through to migrate nerdologues.com from Drupal 7 to Drupal 8. I'm doing this work for a few reasons. First and foremost, I'm doing it to stay sharp as a web developer. In my job at Pantheon I draw heavily on my experience building sites in WordPress and Drupal 5, 6, and 7. Drupal 8 has a lot of changes. The more real world experience I have with it, the more effective I'll be.
+This post is the first in a series that I will write to detail the migration of [nerdologues.com](https://www.nerdologues.com/) from Drupal 7 to Drupal 8. When I lived in Chicago I was an ensemble member with The Nerdologues performing sketch comedy. I've continued maintaining the site since moving to Milwaukee two years ago.
 
+Since building the site withDrupal 7 in 2012 I have used it to test out different areas of Drupal or web development that interest me. [It uses Panels in the way that I like](https://www.palantir.net/blog/explaining-panels-why-i-use-panels) and some of the templates are converted to use Drupal 7 Twig. As soon as Cloudflare unrolled their free plan, I jumped on it to get the site using HTTPS. When I wanted to learn more about Symfony, I wrote a microservice (of sorts) on another server that takes the mp3s of podcast episodes and cuts them up based on timing data entered in Drupal to populate [a clip archive](https://www.nerdologues.com/podcasts/your-stories/clips). 
 
-I've given myself a few parameters for this work:
+So it's a typical side project. Some parts of handled with great care. Some are sloppy and out of date. I have put off a Drupal 8 migration until recently because I'm not expecting any huge gains in functionality relative to the amount of work this will take. The members of the Nerdologues who add content might like the improved admin experience of Drupal 8. But it won't be all that different. To limit/clarify scope (and to give me an excuse to do screenshot-based testing) I want the public-facing side of the site to be identical, pixel-for-pixel, to the Drupal 7 site. There are plenty of ways the public-facing side of the site could be improved. And those changes will be easier in Drupal 8.
 
-* No visual changes. I want to be able to run a screenshot-based regression tool like Wraith and show that the D7 and D8 sites are visually identical.
-* I'm making this restriction for the following reasons:
-  * I have to draw the line somewhere. If I have some visual difference between the sites, it would likely become a slippery slope to complete redesign and I simply do not want to do that.
-  *  To show that it is possible. Since I saw it, I have been somewhat stuck on Todd's vision for how CMS will be updated in the future. I want to show that this model, where the backend changes completely and the front-end does not change at all is possible when moving from  D7 to D8. Sure, this site has a very simple visual design, but I'm also just one guy working in spare time.
-* I have some ugly Twig files. In Drupal 7 I was using the menu system and other abstractions to generate the header and footer. In Drupal 8 I just want the HTML to match D7 for now. So the header and footer files are just HTML.  
-* A Pantheon to Pantheon migration.
-* Pull requests for everything.
-  * Migrations runable on pull request.
-* In a different browser I'm into GitHub as Faux Al Gore, so that I can give myself pedantic code reviews.
-* No canonical database yet. All config changes install thanks to config installer profile.
-* I'm using github issues to track my work
-* Tests run on Circle CI.
-* I'm using Behat to test the functionality of a built site inside Circle CI. Behat also runs tests against a Pantheon multidev site built for the pull request to check the results of a migration.
-* As much as possible, I'm taking chances to learn new Drupal 8 paradigms including services, plugins for field formatters, ....
+But will it be worth the time? If I were back in the agency world advising a real client I would say "this Drupal 7 site is fine. Don't upgrade until you have a compelling reason." My personal compelling reason to do the migration anyway is that I want to stay sharp on site building; particularly in Drupal 8. Since switching jobs in September, I'm no longer building sites all the time. Still, my job at Pantheon is much easier when I can speak from direct experience. So to Drupal 8 we go!
+
+In no particular order, here are aspects of the project that may turn into their own blog posts:
+
+* The Drupal 7 site is live on Pantheon. The Drupal 8 version has its own Pantheon site.
+* The Drupal 8 code is in [a public GitHub repository](https://github.com/stevector/nerdologues-d8) for anyone who is curious. The Drupal 7 repo will remain private.
+* I'm using GitHub issues to track my work.
+* All changes to the repo go through a pull request.
+* With each pull request, Circle CI does the following:
+  * Runs PHP code sniffing and phpunit tests.
+  * Installs the Drupal site in the Circle CI container and runs Behat tests against that site.
+  * Deploys to a Pantheon multidev environment named for the Circle build number (which is kind of overkill).
+  * Runs a migration in the Drupal 8 Pantheon multidev environment, reading from a Drupal 7 Pantheon multidev environment.
+* In a different browser I'm signing into GitHub as [Faux Al Gore](https://github.com/fauxalgore), so that I can give myself pedantic code reviews.
+* There is no canonical Drupal 8 database yet. All config changes install thanks to [Configuration Installer](https://www.drupal.org/project/config_installer) profile.
+* As much as possible, I'm taking chances to learn new Drupal 8 paradigms including services, plugins for field formatters, and the Drupal 8 migration suite.
 * I'm doing local development with `drush rs`.
-* I want to refactor my repository so that my pull requests aren't polluted by compiled composer dependencies. But I'll probably wait until Pantheon has more direct support for Drupal Project.
+* There are a lot of file fields on the Drupal 7 site that deal with different types of local and remote files. I haven't yet figure out how I will model them in Drupal 8.
+* I want to refactor my repository structure and build process so that my pull requests aren't [polluted by compiled Composer dependencies](https://github.com/stevector/nerdologues-d8/pull/103/files). I'll probably wait until Pantheon has more direct support for [Drupal Project](https://github.com/drupal-composer/drupal-project).
 
-Each of those bullet points could be their own blog post. 
+If any of these topics sound interesting to you, let me know! Comment on one of the issues in [my repo for managing future blog posts](https://github.com/stevector/stevector_posts/issues) and let me know what I should write about next. 
