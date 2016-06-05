@@ -1,12 +1,13 @@
 ---
-post_title: Drupal 7 to Drupal 8 Migration Diary #1: What have I gotten myself into?
+ID: 35
+post_title: Drupal 7 to Drupal 8 Migration Diary
 author: admin65534
+post_date: 2016-06-05 18:48:34
 post_excerpt: ""
 layout: post
-
+permalink: http://www.stevector.com/?p=35
 published: false
 ---
-
 This post is the first in a series that I will write to detail the migration of [nerdologues.com](https://www.nerdologues.com/) from Drupal 7 to Drupal 8. When I lived in Chicago I was an ensemble member with The Nerdologues performing sketch comedy. I've continued maintaining the site since moving to Milwaukee two years ago.
 
 Since building the site withDrupal 7 in 2012 I have used it to test out different areas of Drupal or web development that interest me. [It uses Panels in the way that I like](https://www.palantir.net/blog/explaining-panels-why-i-use-panels) and some of the templates are converted to use Drupal 7 Twig. As soon as Cloudflare unrolled their free plan, I jumped on it to get the site using HTTPS. When I wanted to learn more about Symfony, I wrote a microservice (of sorts) on another server that takes the mp3s of podcast episodes and cuts them up based on timing data entered in Drupal to populate [a clip archive](https://www.nerdologues.com/podcasts/your-stories/clips). 
@@ -33,4 +34,4 @@ In no particular order, here are aspects of the project that may turn into their
 * There are a lot of file fields on the Drupal 7 site that deal with different types of local and remote files. I haven't yet figure out how I will model them in Drupal 8.
 * I want to refactor my repository structure and build process so that my pull requests aren't [polluted by compiled Composer dependencies](https://github.com/stevector/nerdologues-d8/pull/103/files). I'll probably wait until Pantheon has more direct support for [Drupal Project](https://github.com/drupal-composer/drupal-project).
 
-If any of these topics sound interesting to you, let me know! Comment on one of the issues in [my repo for managing future blog posts](https://github.com/stevector/stevector_posts/issues) and let me know what I should write about next. 
+If any of these topics sound interesting to you, let me know! Comment on one of the issues in [my repo for managing future blog posts](https://github.com/stevector/stevector_posts/issues) and let me know what I should write about next.
