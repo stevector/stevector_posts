@@ -1,6 +1,6 @@
 ---
 ID: 35
-post_title: Drupal 7 to Drupal 8 Migration Diary
+post_title: Drupal 7 to Drupal 8 Migration Diary (part 1): What have I gotten myself into?
 author: admin65534
 post_date: 2016-06-05 18:48:34
 post_excerpt: ""
