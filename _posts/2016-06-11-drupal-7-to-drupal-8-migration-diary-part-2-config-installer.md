@@ -53,7 +53,4 @@ If I did have a canonical Drupal 8 database, it would be running on some tag of 
 * The `.yml` configuration files for the Drupal 8 site live in [`sites/default/config`](https://github.com/stevector/nerdologues-d8/tree/dbb0f71d5d71509d734ad47ab24a6a8f8ec12732/sites/default/config).
 * With each pull request, the installation is run [inside CircleCI](https://github.com/stevector/nerdologues-d8/blob/master/circle.yml#L73) (and again in a Pantheon Multidev environment) using `drush site-install config_installer`. 
 
-
-
-
-
+Configuration Installer is letting me work the way I want to work at this point while the Drupal 8 site is in heavy development. After the site is live, I wonder if I will want to remove it to have one fewer dependency. That's a question for another day, or year.
