@@ -32,13 +32,13 @@ As far as Drupal core is concerned, `sites/default/config` is meant for configur
 
 ## How are other people working without Configuration Installer?
 
-I would not need Configuration Installer if I established a canonical Drupal 8 database. With a canonical Drupal 8 database, CircleCI would would grab a copy of the D8 database and import configuration changes rather than installing fresh which creates a new database. Once the Drupal 8 site is live, that will be the workflow. But I don't want to go that workflow yet. A Drupal site has three main parts:
+I would not need Configuration Installer if I established a canonical Drupal 8 database. With a canonical Drupal 8 database, CircleCI would would run on a copy of that D8 database and then import configuration changes rather than installing fresh which creates a new database. Once the Drupal 8 site is live (and has a canonical database), that will be the workflow. But I don't want to go that workflow yet. A Drupal site has three main parts:
 
 - Version-controlled code.
 - Files ignored from version control (mostly uploaded images/documents).
 - A database.
 
-The database is easiest element of the three to mess up and the hardest to fix after a mistaken change. That's why Drupal 8 introduced new configuration management tools that move focus from the database to version controlled code. *Configuration does still live in the database* as far as a runtime Drupal site is concerned but configuration is so cleanly imported and exported to code now that mental focus goes to the `.yml` files.
+Of the three, the database is easiest element to mess up and the hardest to fix after a mistaken change. That's why Drupal 8 introduced new configuration management tools that move focus from the database to version controlled code. *Configuration does still live in the database* as far as a runtime Drupal site is concerned but configuration is so cleanly imported and exported to code now that mental focus goes to the `.yml` files.
 
 In essence, a Drupal-to-Drupal migration is the transitioning from one set of canonical code/files/database to another. I want to minimize the amount of time that I have two canonical databases to worry about. Right now I can think that any pull request I make on my Drupal 8 code can result in the running of a full data migration to a disposable Drupal 8 database. If there is something I don't like about the Drupal 8 database that is produced by the pull request, I can throw it away and try again. Even if the changes are correct, the Drupal 8 databases are all temporary at this point.
 
