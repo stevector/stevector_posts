@@ -5,7 +5,11 @@ layout: post
 published: false
 ---
 
-When I started on this project I was excited to use Drupal 8's configuration management system. My imagined workflow was something like:
+*This post is the second in a series about migrating [nerdologues.com](https://www.nerdologues.com/) from Drupal 7 to Drupal 8. [Read the first post here](http://stevector.com/2016/06/drupal-7-to-drupal-8-migration-diary-part-1-what-have-i-gotten-myself-into/).*
+
+## The workflow I want to use
+
+When I started on this project to migrate [nerdologues.com](https://www.nerdologues.com/) from Drupal 7 to Drupal 8 I was excited to use [Drupal 8's Configuration Manager](https://www.drupal.org/documentation/administer/config). My imagined workflow was something like:
 
 * Install Drupal 8 with the core's Standard install profile.
 * Make configuration changes.
@@ -17,28 +21,28 @@ But there is a problem with this workflow. When attempting to do the import of p
 
 @todo get error message
 
-As far as Core is concerned, `sites/default/config` is meant for configuration from the same site (or at least different copies of the same site). Doing a fresh install of Drupal core means that the pre-existing config in `sites/default/config` is seen as foreign.
+As far as Drupal core is concerned, `sites/default/config` is meant for configuration from the same site (or at least different copies of the same site). Doing a fresh install of Drupal core means that the pre-existing config in `sites/default/config` is seen as foreign.
 
-# Enter Configuration Installer
+## Enter Configuration Installer
 
-[Configuration Installer](https://www.drupal.org/project/config_installer) allows me to use the workflow that I want. (Thanks to [Alex Pott](https://www.drupal.org/u/alexpott) for writing it!) Drupal bases new installations on installation profiles. In Drupal 8, each install profile is expected to provide the configuration it needs in the form of `.yml` files. For most every install profile, those `.yml` files live inside the directory of the install profile. See the directory structure of core's [Standard](http://cgit.drupalcode.org/drupal/tree/core/profiles/standard?h=8.1.2) and [Minimal](http://cgit.drupalcode.org/drupal/tree/core/profiles/minimal?h=8.1.2) install profiles. Configuration Installer is a way to say "my configuration is actually over in `sites/default/config`." It's a workaround that works. [Here's a pull request that updates the permissions for the Content Administrator configuration and changes some Behat tests accordingly](https://github.com/stevector/nerdologues-d8/pull/67/files). If it  
+[Configuration Installer](https://www.drupal.org/project/config_installer) allows me to use the workflow that I want. (Thanks to [Alex Pott](https://www.drupal.org/u/alexpott) for writing it!) Drupal bases new installations on installation profiles. In Drupal 8, each install profile is expected to provide the configuration it needs in the form of `.yml` files. For most every install profile, those `.yml` files live inside the directory of the install profile. See the directory structure of core's [Standard](http://cgit.drupalcode.org/drupal/tree/core/profiles/standard?h=8.1.2) and [Minimal](http://cgit.drupalcode.org/drupal/tree/core/profiles/minimal?h=8.1.2) install profiles. Configuration Installer is a way to say "my configuration is actually over in `sites/default/config`." It's a workaround that works. [Here's a pull request that updates the permissions for the Content Administrator role's configuration and changes some Behat tests accordingly](https://github.com/stevector/nerdologues-d8/pull/67/files). 
 
-# Wait, why do I need this?
+## How are other people working without Configuration Installer?
 
-I would not need Configuration Installer if I established a canonical Drupal 8 database. But I don't want to do that yet. A Drupal site has three main parts:
+I would not need Configuration Installer if I established a canonical Drupal 8 database. With a canonical Drupal 8 database, CircleCI would would grab a copy of the D8 database and `import` configuration changes rather than installing and creating a new database. But I don't want to do that yet. A Drupal site has three main parts:
 
 - Version-controlled code.
 - Files ignored from version control (mostly uploaded images/documents).
 - A database.
 
-The database is the element that is the easiest part to mess up and the hardest to restore after a mistaken change. That's why Drupal 8 introduced new configuration management tools that move focus from the database to version controlled code. *Configuration does still live in the database* as far as a runtime Drupal site is concerned but it is so cleanly imported and exported to code that mental focus goes to the files.
+The database is the element that is the easiest part to mess up and the hardest to fix after a mistaken change. That's why Drupal 8 introduced new configuration management tools that move focus from the database to version controlled code. *Configuration does still live in the database* as far as a runtime Drupal site is concerned but configuration is so cleanly imported and exported to code now that mental focus goes to the `.yml` files.
 
 In essence, a Drupal-to-Drupal migration is the transitioning from one set of canonical code/files/database to another. I want to minimize the amount of time that I have two canonical databases to worry about. Right now I can think that any pull request I make on my Drupal 8 code can result in the running of a full data migration to a disposable Drupal 8 database. If there is something I don't like about the Drupal 8 database that is produced by the pull request, I can throw it away and try again.
 
-If I did have a canonical Drupal 8 database, it would be running on some tag of my Drupal 8 code's master branch. I would be much more hesitant to make merges to master out of fear that I might mess up the Drupal 8 canonical database.
+If I did have a canonical Drupal 8 database, it would be running on some tag of my Drupal 8 code's master branch. I would be much more hesitant to make merges to master out of fear that I might mess up the Drupal 8 canonical database. I will put off that conceptual switch as long as doing so saves me time and mental energy. Especially for a side project, I don't want to be thinking with every pull request "in what way exactly is this change made more complicated by having two canonical databases?"
 
 
-# So where are the relevant pieces in the project?
+## Where are the relevant pieces in the project?
 
 (These links are to a specific git hash in my Drupal 8 repo because the relevant code might have moved by the time you are reading this blog post.)
 
