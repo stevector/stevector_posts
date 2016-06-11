@@ -17,9 +17,12 @@ When I started on this project to migrate [nerdologues.com](https://www.nerdolog
 * Push committed configuration to GitHub, make pull request.
 * CircleCI reinstalls with the Standard profile, import configuration from `sites/default/config`, run tests.
 
-But there is a problem with this workflow. When attempting to do the import of pre-existing configuration Drupal will complain with a message like :
+But there is a problem with this workflow. When attempting to do the import of pre-existing configuration (with `drush config-import`) Drupal will complain with a message that includes:
 
-@todo get error message
+```
+The import failed due for the following reasons:                         
+Site UUID in source storage does not match the target storage.
+```
 
 As far as Drupal core is concerned, `sites/default/config` is meant for configuration from the same site (or at least different copies of the same site). Doing a fresh install of Drupal core means that the pre-existing config in `sites/default/config` is seen as foreign.
 
