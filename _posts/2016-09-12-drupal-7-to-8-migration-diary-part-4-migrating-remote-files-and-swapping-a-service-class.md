@@ -1,12 +1,12 @@
 ---
 ID: 78
-post_title: 'Drupal 7 to 8 Migration Diary (Part 4): migrating remote files and overriding a service'
+post_title: 'Drupal 7 to 8 Migration Diary (Part 4): migrating remote files and swapping a service class'
 author: admin65534
 post_date: 2016-09-12 06:39:30
 post_excerpt: ""
 layout: post
 permalink: >
-  http://stevector.com/2016/09/drupal-7-to-8-migration-diary-part-4-migrating-remote-files-and-overriding-a-service/
+  http://stevector.com/2016/09/drupal-7-to-8-migration-diary-part-4-migrating-remote-files-and-swapping-a-service-class/
 published: true
 ---
 After a summer dominated by weddings and work conferences I had a few days of open weekends to make progress on the Drupal 7 to 8 migration. One area I was concerned about from the beginning was the handling of some remote files that are not controlled directly by Drupal.
